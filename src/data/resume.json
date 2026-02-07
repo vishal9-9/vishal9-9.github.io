@@ -1,0 +1,209 @@
+{
+    "name": "Vishal Yadav",
+    "position": "Backend Engineer – Gen AI",
+    "contactInformation": "+918108960994",
+    "email": "vishal.s.y99@gmail.com",
+    "address": "Mumbai, India",
+    "profilePicture": "",
+    "socialMedia": [
+        {
+            "socialMedia": "Github",
+            "link": "github.com/vishal9-9"
+        },
+        {
+            "socialMedia": "LinkedIn",
+            "link": "www.linkedin.com/in/vishaly99"
+        },
+        {
+            "socialMedia": "Website",
+            "link": "vishal9-9.github.io"
+        }
+    ],
+    "summary": "I specialize in building high-performance, scalable backend systems and intelligent AI solutions. With expertise in Python, FastAPI, and Django, I lead the development of event-driven architectures and complex multi-agent AI platforms. I am passionate about optimizing cloud infrastructure, automating workflows, and turning data into actionable insights.",
+    "education": [
+        {
+            "school": "Lovely Professional University",
+            "degree": "Master of Computer Applications",
+            "startYear": "2024",
+            "endYear": "Present"
+        },
+        {
+            "school": "Thakur College of Science & Commerce",
+            "degree": "Bachelor of Computer Science",
+            "startYear": "2018",
+            "endYear": "2022"
+        },
+        {
+            "school": "Thakur Vidya Mandir High School & Jr College",
+            "degree": "HSC (12th Grade)",
+            "startYear": "2016",
+            "endYear": "2018"
+        },
+        {
+            "school": "St John's High School",
+            "degree": "SSC (10th Grade)",
+            "startYear": "2003",
+            "endYear": "2016"
+        }
+    ],
+    "workExperience": [
+        {
+            "company": "OpenSpace Services Pvt. Ltd.",
+            "position": "Backend Engineer – Gen AI",
+            "description": "Architecting end-to-end backend solutions and AI platforms for healthcare and logistics sectors. I manage the full development lifecycle from database design to cloud deployment, ensuring security, scalability, and performance.",
+            "keyAchievements": [
+                "Optimized critical query latency by ~70% (6s → 2s) via advanced indexing, join optimization, and Redis caching.",
+                "Designed event-driven architectures using AWS S3, SQS, and Lambda for high-throughput asynchronous document processing.",
+                "Built secure, RBAC-enabled REST APIs for multi-tenant enterprise applications, ensuring data isolation and compliance.",
+                "Led the migration of legacy databases to new schemas, preserving data integrity across complex relationships.",
+                "Integrated GenAI workflows (RAG, LLM agents) to enable natural language querying of structured data.",
+                "Deployed and managed containerized microservices using Docker and AWS ECR."
+            ],
+            "startYear": "Apr 2022",
+            "endYear": "Present"
+        }
+    ],
+    "projects": [
+        {
+            "name": "FreightMate – Intelligent Logistics Processing",
+            "description": "A sophisticated logistics automation platform that blindly processes varying document formats to extract critical shipment details (pickup/delivery locations, dates, truck types). Initially built with Tesseract, I migrated it to AWS Textract for superior accuracy (~85%). The system uses an event-driven pipeline where S3 uploads trigger a seamless flow through SQS and Lambda for scalable, serverless processing.",
+            "techStack": [
+                "AWS Textract",
+                "AWS Lambda",
+                "SQS",
+                "S3",
+                "Python",
+                "ECR"
+            ],
+            "keyAchievements": [
+                "Automated data extraction from diverse logistics documents with high accuracy.",
+                "Implementing a resilient, serverless event-driven architecture.",
+                "Reduced manual data entry efforts by over 80%."
+            ],
+            "title": "",
+            "link": "",
+            "startYear": "",
+            "endYear": ""
+        },
+        {
+            "name": "AI Analytics Platform",
+            "description": "An enterprise-grade, Multi-Agent AI platform empowering non-technical users to query complex databases via natural language. The system orchestrates specialized agents for SQL generation, data visualization, and security validation. It features strict row-level security and multi-tenancy, ensuring that users only access data they are authorized to see, while RAG prevents hallucinations.",
+            "techStack": [
+                "LangGraph",
+                "Gen AI",
+                "RAG",
+                "Qdrant",
+                "SQL Agents",
+                "Enterprise Security"
+            ],
+            "keyAchievements": [
+                "Democratized data access for non-technical stakeholders.",
+                "Ensured data safety with autonomous security agents blocking malicious queries.",
+                "Delivered accurate, context-aware insights using RAG pipelines."
+            ],
+            "title": "",
+            "link": "",
+            "startYear": "",
+            "endYear": ""
+        },
+        {
+            "name": "MyHealthMeter",
+            "description": "A comprehensive health management ecosystem handling appointment bookings, health tracking, and CRM integration. I architected the high-performance FastAPI backend to support mobile and web clients, ensuring seamless data synchronization. The system includes a custom notification engine handling critical alerts via OTP, Email, and Push notifications.",
+            "techStack": [
+                "FastAPI",
+                "Redis",
+                "Celery",
+                "Flower",
+                "AWS",
+                "CRM Integration"
+            ],
+            "keyAchievements": [
+                "Scaled to handle rapid appointment bookings and health data synchronization.",
+                "Built a robust, unified notification system for multi-channel alerts.",
+                "Optimized backend performance for concurrent mobile and web access."
+            ],
+            "title": "",
+            "link": "",
+            "startYear": "",
+            "endYear": ""
+        },
+        {
+            "name": "Notification Engine",
+            "description": "A standalone microservice designed to decouple messaging logic from core applications. Built with FastAPI and dependency injection principles, it utilizes Redis queues to asynchronously dispatch messages across SMS, Email, Push, and WhatsApp channels, ensuring high availability and fault tolerance.",
+            "techStack": [
+                "FastAPI",
+                "Redis",
+                "Dependency Injection",
+                "Microservices"
+            ],
+            "keyAchievements": [
+                "Decoupled messaging logic to improve core system stability.",
+                "Enabled reliable, asynchronous message delivery across 4+ channels.",
+                "Simplified integration for other internal services via a unified API."
+            ],
+            "title": "",
+            "link": "",
+            "startYear": "",
+            "endYear": ""
+        },
+        {
+            "name": "Raidesh – Community Manager",
+            "description": "A vibrant community engagement platform facilitating user profiles, forums, and event management. Features a robust Django REST Framework backend integrated with a reactive ReactJS frontend. The system relies on MySQL for structured data storage and AWS S3 for media assets.",
+            "techStack": [
+                "Django DRF",
+                "ReactJS",
+                "MySQL",
+                "AWS S3"
+            ],
+            "keyAchievements": [
+                "Created a seamless social experience with forums and events.",
+                "Designed responsive, user-friendly interfaces with React.",
+                "Managed efficient media storage and delivery using S3."
+            ],
+            "title": "",
+            "link": "",
+            "startYear": "",
+            "endYear": ""
+        }
+    ],
+    "skills": [
+        {
+            "title": "Backend & Core",
+            "skills": [
+                "Python",
+                "FastAPI",
+                "Django",
+                "REST APIs",
+                "System Design",
+                "Microservices"
+            ]
+        },
+        {
+            "title": "Data & Cloud",
+            "skills": [
+                "MySQL",
+                "Redis",
+                "AWS (Lambda, S3, SQS)",
+                "Docker",
+                "Kubernetes",
+                "Celery"
+            ]
+        },
+        {
+            "title": "AI & Intelligence",
+            "skills": [
+                "Generative AI",
+                "LangGraph",
+                "Multi-Agent Systems",
+                "RAG",
+                "AWS Textract",
+                "LLMs"
+            ]
+        }
+    ],
+    "languages": [
+        "English",
+        "Hindi"
+    ],
+    "certifications": []
+}
