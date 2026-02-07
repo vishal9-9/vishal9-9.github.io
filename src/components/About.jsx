@@ -7,7 +7,7 @@ const About = ({ data, education, skills }) => {
             <h2 className="text-3xl font-bold text-white/90">About Me</h2>
 
             {/* Summary Section - Full Width */}
-            <GlassCard className="p-8">
+            <GlassCard className="p-6 md:p-8">
                 <p className="text-lg text-white/70 leading-relaxed font-light">
                     {data.summary}
                 </p>

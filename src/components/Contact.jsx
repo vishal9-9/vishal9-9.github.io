@@ -6,7 +6,7 @@ const Contact = ({ data }) => {
     return (
         <section id="contact" className="space-y-8 pb-12">
             <h2 className="text-3xl font-bold text-white/90">Get In Touch</h2>
-            <GlassCard className="p-8 md:p-12 text-center">
+            <GlassCard className="p-6 md:p-12 text-center">
                 <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
                     I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                 </p>
@@ -16,7 +16,7 @@ const Contact = ({ data }) => {
                         <div className="p-4 rounded-full bg-white/5 mb-2 hover:bg-white/10 transition-colors">
                             <Mail size={24} className="text-blue-400" />
                         </div>
-                        <span>{data.email}</span>
+                        <span className="break-all">{data.email}</span>
                     </div>
                     <div className="flex flex-col items-center gap-2 text-white/60">
                         <div className="p-4 rounded-full bg-white/5 mb-2 hover:bg-white/10 transition-colors">

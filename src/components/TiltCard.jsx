@@ -17,7 +17,11 @@ const TiltCard = ({ children, className = "", onClick, noGlass = false, ...props
     const glareX = useTransform(mouseX, [-0.5, 0.5], ["0%", "100%"]);
     const glareY = useTransform(mouseY, [-0.5, 0.5], ["0%", "100%"]);
 
+    const isHoverable = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+
     const handleMouseMove = (e) => {
+        if (!isHoverable) return;
+
         const rect = ref.current.getBoundingClientRect();
         const width = rect.width;
         const height = rect.height;

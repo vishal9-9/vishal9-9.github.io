@@ -88,7 +88,7 @@ const CustomCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[9999] backdrop-blur-[2px] backdrop-brightness-125 backdrop-contrast-110 bg-white/5 border border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+            className="hidden md:block fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[9999] backdrop-blur-[2px] backdrop-brightness-125 backdrop-contrast-110 bg-white/5 border border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
             style={{
                 x: springX,
                 y: springY,

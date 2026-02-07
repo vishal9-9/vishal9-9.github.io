@@ -40,7 +40,7 @@ const RadioWidget = () => {
     const toggleMute = () => setIsMuted(!isMuted);
 
     return (
-        <div className="fixed bottom-6 left-6 z-40 hidden md:flex items-center gap-3">
+        <div className="fixed bottom-6 left-6 z-40 flex items-center gap-3">
             <motion.div
                 initial={{ width: 48 }}
                 whileHover={{ width: 'auto' }}
