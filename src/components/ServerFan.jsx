@@ -15,7 +15,7 @@ const ServerFan = () => {
                 playClick();
                 openSystemMonitor();
             }}
-            className="fixed bottom-6 right-6 z-40 hidden md:flex flex-col items-center gap-2 cursor-pointer group/fan"
+            className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-2 cursor-pointer group/fan"
         >
 
             {/* Fan Unit */}

@@ -183,7 +183,7 @@
             "skills": [
                 "MySQL",
                 "Redis",
-                "AWS (Lambda, S3, SQS)",
+                "AWS (Lambda, S3, SQS, EC2, ECR, SES)",
                 "Docker",
                 "Kubernetes",
                 "Celery"
