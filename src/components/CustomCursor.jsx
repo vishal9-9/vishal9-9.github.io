@@ -1,49 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useVelocity, useTransform } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 
 const CustomCursor = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
 
-    // Mouse position
+    // Mouse position - using direct values for zero latency
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // "Heavy" spring physics for magnifying glass feel
-    // Lower stiffness = looser follow, Higher mass = more inertia
-    const springConfig = { damping: 25, stiffness: 150, mass: 0.8 };
-    const springX = useSpring(mouseX, springConfig);
-    const springY = useSpring(mouseY, springConfig);
-
-    // Velocity tracking for distortion
-    const velocityX = useVelocity(springX);
-    const velocityY = useVelocity(springY);
-
-    // Transform velocity into scale (Subtle squash & stretch)
-    const scaleX = useTransform(velocityX, [-1000, 0, 1000], [1.1, 1, 1.1]);
-    const scaleY = useTransform(velocityY, [-1000, 0, 1000], [0.9, 1, 0.9]);
-
-    // Rotate based on movement direction
-    const rotate = useTransform(
-        [velocityX, velocityY],
-        ([latestX, latestY]) => {
-            const angle = Math.atan2(latestY, latestX) * (180 / Math.PI);
-            return isNaN(angle) ? 0 : angle;
-        }
-    );
-
     useEffect(() => {
         const moveCursor = (e) => {
-            // Center the larger cursor (w-12 = 48px, so offset 24px)
-            mouseX.set(e.clientX - 24);
-            mouseY.set(e.clientY - 24);
+            // Direct mapping for instant response
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
             if (!isVisible) setIsVisible(true);
         };
 
         const handleMouseEnter = () => setIsVisible(true);
         const handleMouseLeave = () => setIsVisible(false);
 
-        // Check if hovering over clickable elements
         const handleMouseOver = (e) => {
             if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
                 setIsHovering(true);
@@ -71,34 +47,49 @@ const CustomCursor = () => {
         };
     }, [mouseX, mouseY, isVisible]);
 
-    // Spring for scale to add "pop" effect
-    const springScale = useSpring(1, { damping: 20, stiffness: 300 });
-
-    useEffect(() => {
-        if (isHovering) {
-            springScale.set(1.2); // Less expansion for larger cursor
-        } else {
-            springScale.set(1);
-        }
-    }, [isHovering, springScale]);
-
-    // Combine squash/stretch with hover scale
-    const finalScaleX = useTransform(scaleX, (val) => val * springScale.get());
-    const finalScaleY = useTransform(scaleY, (val) => val * springScale.get());
-
     return (
         <motion.div
-            className="hidden md:block fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[9999] backdrop-blur-[2px] backdrop-brightness-125 backdrop-contrast-110 bg-white/5 border border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+            className="hidden md:block fixed top-0 left-0 pointer-events-none z-[9999]"
             style={{
-                x: springX,
-                y: springY,
-                scaleX: finalScaleX,
-                scaleY: finalScaleY,
+                x: mouseX,
+                y: mouseY,
                 opacity: isVisible ? 1 : 0,
             }}
         >
-            {/* Inner "Lens" reflection */}
-            <div className="absolute top-2 left-2 w-4 h-2 bg-gradient-to-br from-white/40 to-transparent rounded-full -rotate-45 opacity-60" />
+            {/* High-fidelity Glass Arrow Cursor */}
+            <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                    transform: isHovering ? 'scale(1.1)' : 'scale(1)',
+                    transition: 'transform 0.1s ease-out',
+                    filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))',
+                }}
+            >
+                <defs>
+                    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.9)" />
+                        <stop offset="100%" stopColor="rgba(255, 255, 255, 0.4)" />
+                    </linearGradient>
+                    <linearGradient id="glassFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" />
+                        <stop offset="100%" stopColor="rgba(255, 255, 255, 0.05)" />
+                    </linearGradient>
+                </defs>
+
+                {/* Main Body */}
+                <path
+                    d="M6 4L24 11L15 14.5L12 23L6 4Z" // Sharp clean triangle pointer
+                    fill="url(#glassFill)"
+                    stroke="url(#glassGradient)"
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                    style={{ backdropFilter: 'blur(2px)' }}
+                />
+            </svg>
         </motion.div>
     );
 };

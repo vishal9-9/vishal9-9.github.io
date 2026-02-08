@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin } from 'lucide-react';
 import GlassCard from './GlassCard';
 
 const Contact = ({ data }) => {
@@ -11,24 +11,33 @@ const Contact = ({ data }) => {
                     I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                 </p>
 
-                <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16 mb-8">
-                    <div className="flex flex-col items-center gap-2 text-white/60">
-                        <div className="p-4 rounded-full bg-white/5 mb-2 hover:bg-white/10 transition-colors">
-                            <Mail size={24} className="text-blue-400" />
-                        </div>
-                        <span className="break-all">{data.email}</span>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 w-full max-w-4xl mx-auto">
                     <div className="flex flex-col items-center gap-2 text-white/60">
                         <div className="p-4 rounded-full bg-white/5 mb-2 hover:bg-white/10 transition-colors">
                             <MapPin size={24} className="text-purple-400" />
                         </div>
-                        <span>{data.address}</span>
+                        <span className="text-center">{data.address}</span>
                     </div>
+
+                    {data.socialMedia?.find(s => s.socialMedia === 'LinkedIn') && (
+                        <a
+                            href={`https://${data.socialMedia.find(s => s.socialMedia === 'LinkedIn').link}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors group"
+                        >
+                            <div className="p-4 rounded-full bg-white/5 mb-2 group-hover:bg-white/10 transition-colors">
+                                <Linkedin size={24} className="text-blue-400" />
+                            </div>
+                            <span>LinkedIn</span>
+                        </a>
+                    )}
+
                     <div className="flex flex-col items-center gap-2 text-white/60">
                         <div className="p-4 rounded-full bg-white/5 mb-2 hover:bg-white/10 transition-colors">
-                            <Phone size={24} className="text-pink-400" />
+                            <Mail size={24} className="text-blue-400" />
                         </div>
-                        <span>{data.contactInformation}</span>
+                        <span className="break-all text-center">{data.email}</span>
                     </div>
                 </div>
 

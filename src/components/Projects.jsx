@@ -99,10 +99,28 @@ const Projects = ({ data }) => {
 
                                     {/* Icon */}
                                     <motion.div
-                                        className="relative z-10"
-                                        whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
+                                        className="relative z-10 flex flex-col items-center gap-2"
+                                        initial="initial"
+                                        whileHover="hover"
+                                        animate="initial"
                                     >
-                                        {icon}
+                                        <motion.div
+                                            variants={{
+                                                initial: { scale: 1, rotate: 0 },
+                                                hover: { scale: 1.1, rotate: [0, -10, 10, 0], transition: { rotate: { duration: 0.5 }, scale: { type: "spring", stiffness: 400, damping: 10 } } }
+                                            }}
+                                        >
+                                            {icon}
+                                        </motion.div>
+                                        <motion.span
+                                            variants={{
+                                                initial: { opacity: 0, y: 10 },
+                                                hover: { opacity: 1, y: 0 }
+                                            }}
+                                            className="text-[10px] font-bold uppercase tracking-widest text-white/80 bg-black/20 px-2 py-1 rounded-full backdrop-blur-sm border border-white/10"
+                                        >
+                                            View Details
+                                        </motion.span>
                                     </motion.div>
                                 </motion.div>
                             </TiltCard>
