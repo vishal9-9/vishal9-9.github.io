@@ -1,17 +1,41 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import GlassCard from './GlassCard';
 import useSound from '../hooks/useSound';
 
-const Footer = () => {
+const Footer = ({ data }) => {
     const { playHover, playClick } = useSound();
 
+    if (!data) return null;
+
+    const getIcon = (name) => {
+        switch (name.toLowerCase()) {
+            case 'github': return <Github size={20} />;
+            case 'linkedin': return <Linkedin size={20} />;
+            case 'email': return <Mail size={20} />;
+            default: return <Mail size={20} />;
+        }
+    };
+
+    const formatUrl = (url) => {
+        if (!url) return '#';
+        if (url.startsWith('http')) return url;
+        return `https://${url}`;
+    };
+
     const socialLinks = [
-        { icon: <Github size={20} />, href: "https://github.com/yourusername", label: "GitHub" },
-        { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-        { icon: <Twitter size={20} />, href: "https://twitter.com/yourusername", label: "Twitter" },
-        { icon: <Mail size={20} />, href: "mailto:your.email@example.com", label: "Email" }
-    ];
+        ...(data.socialMedia?.map(social => ({
+            icon: getIcon(social.socialMedia),
+            href: formatUrl(social.link),
+            label: social.socialMedia
+        })) || []),
+        {
+            icon: <Mail size={20} />,
+            href: `mailto:${data.email}`,
+            label: "Email"
+        }
+    ].filter(link => link.label !== 'Website'); // Filter out self-referential website link if desired, or keep it.
+
 
     return (
         <footer className="mt-20 pb-10">

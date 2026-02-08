@@ -56,7 +56,7 @@ function App() {
         <Experience data={data.workExperience} />
         <Projects data={data.projects} />
         <Contact data={data} />
-        <Footer />
+        <Footer data={data} />
       </Layout>
     </ServerProvider>
   );
